@@ -25,126 +25,22 @@
       flex-direction: column;
       align-items: center;
     }
-
-    main {
-      width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center;
-    }
-
-    .logo {
-      max-width: 300px;
-      margin-top: 20px;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-      overflow: hidden;
-      margin: 20px auto;
-    }
-
-    .carousel {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel img {
-      width: 100%;
-      height: auto;
-      max-height: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-      flex-shrink: 0;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 30px;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
-    }
-
-    .download-button {
-      background-color: #28a745;
-      color: white;
-      padding: 15px 20px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 8px;
-      margin-top: 20px;
-      display: inline-block;
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-
-    .download-button:hover {
-      background-color: #218838;
-      transform: scale(1.05);
-    }
-
-    .social-button {
-      background-color: #3b5998;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      margin-left: 20px;
-      transition: background-color 0.2s ease;
-    }
-
-    .social-button:hover {
-      background-color: #2d4373;
-    }
-
-    footer {
-      margin-top: 30px;
-      padding: 15px;
-      background-color: #ffd700;
-      color: #000;
-      font-size: 14px;
-      text-align: center;
-      width: 100%;
-      border-top: 1px solid #334155;
-      box-sizing: border-box;
-    }
-
-    section {
-      background-color: rgba(255,255,255,0.85);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      max-width: 900px;
-      margin: 50px auto;
-      color: #000;
-    }
+    main { width: 100%; padding: 20px; box-sizing: border-box; text-align: center; }
+    .logo { max-width: 300px; margin-top: 20px; }
+    h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    p { font-size: 1.2rem; line-height: 1.6; }
+    .carousel-container { position: relative; width: 100%; max-width: 1000px; overflow: hidden; margin: 20px auto; }
+    .carousel { display: flex; transition: transform 0.5s ease; }
+    .carousel img { width: 100%; height: auto; max-height: 500px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); flex-shrink: 0; }
+    .arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; font-size: 30px; padding: 10px; border-radius: 50%; cursor: pointer; z-index: 10; }
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+    .download-button { background-color: #28a745; color: white; padding: 15px 25px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 8px; margin-top: 25px; display: inline-block; transition: transform 0.2s ease, background-color 0.2s ease; }
+    .download-button:hover { background-color: #218838; transform: scale(1.05); }
+    .social-button { background-color: #3b5998; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; display: inline-block; margin-left: 20px; transition: background-color 0.2s ease; }
+    .social-button:hover { background-color: #2d4373; }
+    footer { margin-top: 30px; padding: 15px; background-color: #ffd700; color: #000; font-size: 14px; text-align: center; width: 100%; border-top: 1px solid #334155; box-sizing: border-box; }
+    section { background-color: rgba(255,255,255,0.85); padding: 30px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.4); max-width: 900px; margin: 50px auto; color: #000; }
   </style>
 </head>
 <body>
@@ -161,10 +57,19 @@
     <h2>Esplora un Nuovo Mondo</h2>
     <p>
       "Calabria Simulator" è un videogioco d'avventura satirica in stile open world,
-                      ispirato ai meme più folli della rete.
-      Vesti i panni di scimmie ribelli e combatti nel cuore selvaggio della Calabria, 
-                      tra scimmie parlanti e strane creature.
+      ispirato ai meme più folli della rete. Vesti i panni di scimmie ribelli e
+      combatti nel cuore selvaggio della Calabria, tra scimmie parlanti e strane creature.
     </p>
+
+    <!-- Nota: gioco in fase di sviluppo -->
+    <p style="font-weight:bold; font-size:1.1rem; color:#ffcc00;">
+      ⚠️ Il videogioco è attualmente in fase di sviluppo
+    </p>
+
+    <!-- Pulsante subito sotto il titolo -->
+    <a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
+      🎮 Visita la pagina itch.io
+    </a>
 
     <div class="carousel-container">
       <div class="carousel">
@@ -178,11 +83,10 @@
       <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
     </div>
 
-    Coming Soon</a>
-
-    <p style="margin-top: 15px; font-weight: bold; font-size: 18px; text-shadow: none;">
-      🔥 Download totali: <span id="download-count">Caricamento...</span>
-    </p>
+    <!-- Pulsante sotto il carosello -->
+    <a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
+      🎮 Visita la pagina itch.io
+    </a>
 
     <div>
       <img src="logo_sd_games.jpg" alt="Logo SD Games" style="max-width: 200px; margin-top: 30px; display: inline-block;">
@@ -192,8 +96,9 @@
     <section>
       <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Chi Siamo</h3>
       <p style="font-size: 1.1rem;">
-        Siamo un piccolo team di sviluppatori e meme creators calabresi, uniti dalla passione per i giochi indipendenti e l’umorismo nonsense.
-        Il nostro obiettivo? Far ridere, far pensare, e portare un po’ di sana follia nel mondo del gaming italiano.
+        Siamo un piccolo team di sviluppatori e meme creators calabresi, uniti dalla passione
+        per i giochi indipendenti e l’umorismo nonsense. Il nostro obiettivo? Far ridere, far
+        pensare, e portare un po’ di sana follia nel mondo del gaming italiano.
       </p>
       <p style="font-size: 1rem; font-style: italic;">Creato con amore, ironia e tanta cipolla rossa di Tropea ❤️</p>
     </section>
@@ -205,32 +110,12 @@
 
   <script>
     let currentIndex = 0;
-
     function moveCarousel(direction) {
       const carousel = document.querySelector('.carousel');
       const totalImages = document.querySelectorAll('.carousel img').length;
       currentIndex = (currentIndex + direction + totalImages) % totalImages;
-      const offset = -currentIndex * 100;
-      carousel.style.transform = `translateX(${offset}%)`;
+      carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
     }
-
-    fetch('https://api.countapi.xyz/get/calabriaoftheapes/downloads')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('download-count').textContent = data.value.toLocaleString();
-      })
-      .catch(() => {
-        document.getElementById('download-count').textContent = 'N/A';
-      });
-
-    function incrementDownloadCount() {
-      fetch('https://api.countapi.xyz/hit/calabriaoftheapes/downloads')
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById('download-count').textContent = data.value.toLocaleString();
-        });
-    }
-
     window.addEventListener('click', () => {
       const music = document.getElementById('bg-music');
       if (music.muted) {
