@@ -12,7 +12,6 @@
 :root{
   --accent:#22c55e;
   --glass:rgba(255,255,255,.18);
-  --warning:#facc15;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -39,17 +38,6 @@ p{
   margin:0 auto 20px;
   line-height:1.7;
   font-size:1.05rem;
-}
-/* DEV BANNER */
-.dev-banner{
-  display:inline-block;
-  background:linear-gradient(135deg,#facc15,#eab308);
-  color:#1c1917;
-  font-weight:800;
-  padding:14px 26px;
-  border-radius:18px;
-  margin:20px auto 30px;
-  box-shadow:0 10px 30px rgba(250,204,21,.45);
 }
 /* buttons */
 .download-button,
@@ -167,11 +155,6 @@ footer{
 <main>
 <h2>Benvenuto in Calabria Simulator</h2>
 
-<!-- STATO SVILUPPO -->
-<div class="dev-banner">
-⚠️ GIOCO ATTUALMENTE IN FASE DI SVILUPPO
-</div>
-
 <div class="monkey-stage">
   <div class="monkey">🐒</div>
   <div class="monkey">🐒</div>
@@ -212,60 +195,17 @@ Scimmie. Banane. Peperoncino. Calabria.
 <p>⚠️ Attento ai <strong>Calabriat</strong>: se ti avvicini troppo possono prenderti a botte.</p>
 </section>
 
-<!-- MAPPA -->
 <section>
 <h3>🗺️ Mappa della Calabria</h3>
 <p>Esplora una Calabria surreale, ispirata a luoghi iconici, reinterpretati in chiave ironica e folle.</p>
 <div class="map-container">
-<!-- MAPPA STILIZZATA -->
-<svg viewBox="0 0 300 900" xmlns="http://www.w3.org/2000/svg" aria-label="Mappa stilizzata di Calabria Simulator">
-  <defs>
-    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#22c55e"/>
-      <stop offset="100%" stop-color="#14532d"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
-  <!-- Silhouette Calabria -->
-  <path d="M150 40 C130 90,170 120,140 160 C110 200,140 240,120 280 C100 330,130 360,110 410 C90 470,120 520,140 580 C160 640,150 700,140 760 C130 820,150 860,170 860 C190 860,210 820,200 760 C190 700,200 640,220 580 C240 520,210 470,230 410 C250 360,220 330,240 280 C260 240,230 200,260 160 C290 120,270 90,250 40 Z"
-        fill="url(#land)" stroke="#eafff1" stroke-width="3"/>
-
-  <!-- COSTE -->
-  <circle cx="220" cy="160" r="10" fill="#38bdf8"/>
-  <text x="235" y="165" fill="#fff" font-size="12">Coste 🏖️</text>
-
-  <!-- MONTAGNE -->
-  <circle cx="145" cy="360" r="10" fill="#a3e635"/>
-  <text x="160" y="365" fill="#fff" font-size="12">Montagne 🏔️</text>
-
-  <!-- ROVINE -->
-  <circle cx="160" cy="520" r="11" fill="#eab308" filter="url(#glow)"/>
-  <text x="175" y="525" fill="#fff" font-size="12">Rovine 🏛️</text>
-
-  <!-- PEPERONCINO -->
-  <circle cx="180" cy="620" r="11" fill="#ef4444" filter="url(#glow)"/>
-  <text x="195" y="625" fill="#fff" font-size="12">Peperoncino 🌶️</text>
-
-  <!-- CALABRIAT -->
-  <circle cx="190" cy="740" r="13" fill="#f97316" filter="url(#glow)">
-    <animate attributeName="r" values="11;14;11" dur="1.4s" repeatCount="indefinite"/>
-  </circle>
-  <text x="205" y="745" fill="#fff" font-size="12">Calabriat 🥊</text>
-
-</svg>
+  <img src="mappa_calabria.png" alt="Mappa di Calabria Simulator">
 </div>
 
 <ul style="text-align:left;max-width:650px;margin:30px auto;line-height:1.7">
 <li>🏖️ Coste e spiagge selvagge</li>
 <li>🏔️ Montagne e boschi pericolosi</li>
-<li>🏛️ Rovine e zone antiche</li>
+<li>🏛️ Paesi antichi pieni di NPC imprevedibili</li>
 <li>🌶️ Zone ad altissimo livello di peperoncino</li>
 <li>🥊 Aree controllate dai Calabriat</li>
 </ul>
@@ -278,7 +218,7 @@ Scimmie. Banane. Peperoncino. Calabria.
 
 <div>
   <img src="logo_sd_games.jpg" style="max-width:180px;margin-top:30px">
-  <a class="social-button" href="https://www.instagram.com/sdgam.es" target="_blank">
+  <a class="social-button" href="https://www.instagram.com/calabria_simulator_?igsh=MW83ZG1neXRmY24zdQ==" target="_blank">
   Seguici su Instagram
   </a>
 </div>
