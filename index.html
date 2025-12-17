@@ -1,128 +1,234 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calabria Simulator</title>
-  <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
-  <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
-  <meta name="author" content="SD Games">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('anteprima3.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #fff;
-      text-shadow: 2px 2px 4px #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    main { width: 100%; padding: 20px; box-sizing: border-box; text-align: center; }
-    .logo { max-width: 300px; margin-top: 20px; }
-    h2 { font-size: 2.5rem; margin-bottom: 10px; }
-    p { font-size: 1.2rem; line-height: 1.6; }
-    .carousel-container { position: relative; width: 100%; max-width: 1000px; overflow: hidden; margin: 20px auto; }
-    .carousel { display: flex; transition: transform 0.5s ease; }
-    .carousel img { width: 100%; height: auto; max-height: 500px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); flex-shrink: 0; }
-    .arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; font-size: 30px; padding: 10px; border-radius: 50%; cursor: pointer; z-index: 10; }
-    .arrow-left { left: 10px; }
-    .arrow-right { right: 10px; }
-    .download-button { background-color: #28a745; color: white; padding: 15px 25px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 8px; margin-top: 25px; display: inline-block; transition: transform 0.2s ease, background-color 0.2s ease; }
-    .download-button:hover { background-color: #218838; transform: scale(1.05); }
-    .social-button { background-color: #3b5998; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; display: inline-block; margin-left: 20px; transition: background-color 0.2s ease; }
-    .social-button:hover { background-color: #2d4373; }
-    footer { margin-top: 30px; padding: 15px; background-color: #ffd700; color: #000; font-size: 14px; text-align: center; width: 100%; border-top: 1px solid #334155; box-sizing: border-box; }
-    section { background-color: rgba(255,255,255,0.85); padding: 30px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.4); max-width: 900px; margin: 50px auto; color: #000; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calabria Simulator</title>
+
+<meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie.">
+<meta name="author" content="SD Games">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#22c55e;
+  --dark:#020617;
+  --glass:rgba(255,255,255,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  color:#fff;
+  background:
+    linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.85)),
+    url('anteprima3.png') center/cover fixed no-repeat;
+}
+
+/* layout */
+header, main, footer{
+  width:100%;
+  text-align:center;
+  padding:20px;
+}
+
+.logo{
+  max-width:280px;
+  margin:30px auto;
+}
+
+h2{
+  font-size:clamp(2rem,4vw,3rem);
+  margin-bottom:10px;
+}
+
+p{
+  max-width:900px;
+  margin:0 auto 20px;
+  line-height:1.7;
+  opacity:.9;
+}
+
+/* buttons */
+.download-button{
+  display:inline-block;
+  margin:25px 10px;
+  padding:16px 32px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#021;
+  font-weight:800;
+  text-decoration:none;
+  transition:.25s;
+  box-shadow:0 10px 30px rgba(34,197,94,.35);
+}
+
+.download-button:hover{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 15px 40px rgba(34,197,94,.55);
+}
+
+/* carousel */
+.carousel-container{
+  max-width:1000px;
+  margin:40px auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.carousel{
+  display:flex;
+  transition:transform .5s ease;
+}
+
+.carousel img{
+  width:100%;
+  flex-shrink:0;
+  border-radius:18px;
+}
+
+/* arrows */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:34px;
+  padding:10px 16px;
+  background:rgba(0,0,0,.5);
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.arrow-left{left:15px}
+.arrow-right{right:15px}
+
+/* glass sections */
+section{
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:40px 30px;
+  max-width:900px;
+  margin:60px auto;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+/* social */
+.social-button{
+  display:inline-block;
+  margin-left:20px;
+  padding:12px 22px;
+  border-radius:12px;
+  background:#1d4ed8;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.social-button:hover{opacity:.85}
+
+/* footer */
+footer{
+  margin-top:60px;
+  background:#020617;
+  opacity:.9;
+  font-size:14px;
+}
+
+/* mobile */
+@media(max-width:600px){
+  .social-button{display:block;margin:15px auto}
+}
+</style>
 </head>
+
 <body>
-  <audio id="bg-music" loop autoplay muted>
-    <source src="background_music.mp3" type="audio/mpeg">
-    Il tuo browser non supporta l'audio HTML5.
-  </audio>
 
-  <header>
-    <img src="logo gioco.png" alt="Logo Calabria Simulator" class="logo">
-  </header>
+<audio id="bg-music" loop autoplay muted>
+  <source src="background_music.mp3" type="audio/mpeg">
+</audio>
 
-  <main>
-    <h2>Esplora un Nuovo Mondo</h2>
+<header>
+  <img src="logo gioco.png" class="logo" alt="Calabria Simulator">
+</header>
+
+<main>
+  <h2>Esplora un Nuovo Mondo</h2>
+  <p>
+    <strong>Calabria Simulator</strong> è un videogioco satirico open world
+    ispirato ai meme più folli della rete.
+  </p>
+
+  <p style="color:#facc15;font-weight:600">
+    ⚠️ Gioco attualmente in fase di sviluppo
+  </p>
+
+  <a href="https://calabria-simulator.itch.io/calabria-simulator"
+     class="download-button" target="_blank">
+     🎮 Vai su itch.io
+  </a>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="anteprima1.png">
+      <img src="anteprima2.png">
+      <img src="anteprima3.png">
+      <img src="anteprima4.png">
+      <img src="anteprima5.png">
+    </div>
+    <div class="arrow arrow-left" onclick="moveCarousel(-1)">❮</div>
+    <div class="arrow arrow-right" onclick="moveCarousel(1)">❯</div>
+  </div>
+
+  <a href="https://calabria-simulator.itch.io/calabria-simulator"
+     class="download-button" target="_blank">
+     🎮 Scaricalo quando sarà pronto
+  </a>
+
+  <div>
+    <img src="logo_sd_games.jpg" style="max-width:180px;margin-top:30px">
+    <a class="social-button"
+       href="https://www.instagram.com/calabria_simulator_"
+       target="_blank">
+       Seguici su Instagram
+    </a>
+  </div>
+
+  <section>
+    <h3>Chi Siamo</h3>
     <p>
-      "Calabria Simulator" è un videogioco d'avventura satirica in stile open world,
-      ispirato ai meme più folli della rete. Vesti i panni di scimmie ribelli e
-      combatti nel cuore selvaggio della Calabria, tra scimmie parlanti e strane creature.
+      Team indipendente calabrese, tra videogiochi, meme e follia creativa.
     </p>
-
-    <!-- Nota: gioco in fase di sviluppo -->
-    <p style="font-weight:bold; font-size:1.1rem; color:#ffcc00;">
-      ⚠️ Il videogioco è attualmente in fase di sviluppo
+    <p style="font-style:italic">
+      Creato con amore e cipolla di Tropea ❤️
     </p>
+  </section>
+</main>
 
-    <!-- Pulsante subito sotto il titolo -->
-    <a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
-      🎮 Visita la pagina itch.io
-    </a>
+<footer>
+  © 2025 Calabria Simulator – SD Games
+</footer>
 
-    <div class="carousel-container">
-      <div class="carousel">
-        <img src="anteprima1.png" alt="Anteprima 1" loading="lazy">
-        <img src="anteprima2.png" alt="Anteprima 2" loading="lazy">
-        <img src="anteprima3.png" alt="Anteprima 3" loading="lazy">
-        <img src="anteprima4.png" alt="Anteprima 4" loading="lazy">
-        <img src="anteprima5.png" alt="Anteprima 5" loading="lazy">
-      </div>
-      <div class="arrow arrow-left" onclick="moveCarousel(-1)">&#10094;</div>
-      <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
-    </div>
+<script>
+let currentIndex=0;
+function moveCarousel(dir){
+  const c=document.querySelector('.carousel');
+  const n=document.querySelectorAll('.carousel img').length;
+  currentIndex=(currentIndex+dir+n)%n;
+  c.style.transform=`translateX(${-currentIndex*100}%)`;
+}
 
-    <!-- Pulsante sotto il carosello -->
-    <a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
-      🎮 Visita la pagina itch.io
-    </a>
+window.addEventListener('click',()=>{
+  const m=document.getElementById('bg-music');
+  if(m.muted){m.muted=false;m.play().catch(()=>{})}
+},{once:true});
+</script>
 
-    <div>
-      <img src="logo_sd_games.jpg" alt="Logo SD Games" style="max-width: 200px; margin-top: 30px; display: inline-block;">
-      <a href="https://www.instagram.com/sdgam.es?igsh=MW83ZG1neXRmY24zdQ==" class="social-button" target="_blank">Seguici su Instagram</a>
-    </div>
-
-    <section>
-      <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Chi Siamo</h3>
-      <p style="font-size: 1.1rem;">
-        Siamo un piccolo team di sviluppatori e meme creators calabresi, uniti dalla passione
-        per i giochi indipendenti e l’umorismo nonsense. Il nostro obiettivo? Far ridere, far
-        pensare, e portare un po’ di sana follia nel mondo del gaming italiano.
-      </p>
-      <p style="font-size: 1rem; font-style: italic;">Creato con amore, ironia e tanta cipolla rossa di Tropea ❤️</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Calabria Simulator. Tutti i diritti riservati.</p>
-  </footer>
-
-  <script>
-    let currentIndex = 0;
-    function moveCarousel(direction) {
-      const carousel = document.querySelector('.carousel');
-      const totalImages = document.querySelectorAll('.carousel img').length;
-      currentIndex = (currentIndex + direction + totalImages) % totalImages;
-      carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
-    }
-    window.addEventListener('click', () => {
-      const music = document.getElementById('bg-music');
-      if (music.muted) {
-        music.muted = false;
-        music.play().catch(() => {});
-      }
-    }, { once: true });
-  </script>
 </body>
 </html>
