@@ -168,7 +168,7 @@ Scimmie. Banane. Peperoncino. Calabria.
 🎮 Vai su itch.io
 </a>
 
-<!-- musica automatica -->
+<!-- musica -->
 <audio id="bg-music" loop>
   <source src="background_music.mp3" type="audio/mpeg">
 </audio>
@@ -181,6 +181,8 @@ Scimmie. Banane. Peperoncino. Calabria.
     <img src="anteprima4.png">
     <img src="anteprima5.png">
   </div>
+  <div class="arrow arrow-left" onclick="moveCarousel(-1)">&#10094;</div>
+  <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
 </div>
 
 <section>
@@ -225,12 +227,29 @@ Scimmie. Banane. Peperoncino. Calabria.
 </footer>
 
 <script>
-// musica automatica al caricamento
-window.addEventListener('load', ()=>{
+const carousel = document.querySelector('.carousel');
+const totalImages = document.querySelectorAll('.carousel img').length;
+let currentIndex = 0;
+
+// frecce
+function moveCarousel(direction){
+  currentIndex = (currentIndex + direction + totalImages) % totalImages;
+  carousel.style.transform = `translateX(${-currentIndex*100}%)`;
+}
+
+// loop automatico del carosello
+setInterval(()=>{ moveCarousel(1); }, 4000);
+
+// musica al primo click o touch (necessario per Chrome/Firefox)
+function startMusic(){
   const music = document.getElementById('bg-music');
   music.volume = 0.6;
   music.play().catch(()=>{});
-});
+  window.removeEventListener('click', startMusic);
+  window.removeEventListener('touchstart', startMusic);
+}
+window.addEventListener('click', startMusic);
+window.addEventListener('touchstart', startMusic);
 </script>
 </body>
 </html>
