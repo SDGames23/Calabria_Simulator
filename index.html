@@ -40,8 +40,7 @@ p{
   font-size:1.05rem;
 }
 /* buttons */
-.download-button,
-.music-button{
+.download-button{
   display:inline-block;
   margin:25px 10px;
   padding:16px 34px;
@@ -50,18 +49,11 @@ p{
   text-decoration:none;
   transition:.25s;
   cursor:pointer;
-}
-.download-button{
   background:linear-gradient(135deg,#22c55e,#16a34a);
   color:#052e16;
   box-shadow:0 10px 30px rgba(34,197,94,.45);
 }
-.music-button{
-  background:linear-gradient(135deg,#38bdf8,#0284c7);
-  color:#021e2d;
-}
-.download-button:hover,
-.music-button:hover{
+.download-button:hover{
   transform:translateY(-4px) scale(1.05);
 }
 /* TARANTELLA MONKEYS */
@@ -91,6 +83,7 @@ p{
   overflow:hidden;
   border-radius:20px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
+  position:relative;
 }
 .carousel{
   display:flex;
@@ -100,6 +93,21 @@ p{
   width:100%;
   flex-shrink:0;
 }
+/* carousel arrows */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.5);
+  color:#fff;
+  font-size:30px;
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:10;
+}
+.arrow-left{left:10px;}
+.arrow-right{right:10px;}
 /* glass sections */
 section{
   background:var(--glass);
@@ -114,7 +122,7 @@ section{
 .map-container{
   margin-top:30px;
 }
-.map-container svg{
+.map-container img{
   width:100%;
   max-width:600px;
   border-radius:20px;
@@ -165,11 +173,6 @@ footer{
 Scimmie. Banane. Peperoncino. Calabria.
 </p>
 
-<!-- MUSICA -->
-<button class="music-button" onclick="startMusic()">
-🎵 Attiva musica
-</button>
-
 <a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
 🎮 Vai su itch.io
 </a>
@@ -186,6 +189,8 @@ Scimmie. Banane. Peperoncino. Calabria.
     <img src="anteprima4.png">
     <img src="anteprima5.png">
   </div>
+  <div class="arrow arrow-left" onclick="moveCarousel(-1)">&#10094;</div>
+  <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
 </div>
 
 <section>
@@ -230,11 +235,27 @@ Scimmie. Banane. Peperoncino. Calabria.
 </footer>
 
 <script>
-function startMusic(){
+const carousel = document.querySelector('.carousel');
+const totalImages = document.querySelectorAll('.carousel img').length;
+let currentIndex = 0;
+
+// frecce
+function moveCarousel(direction){
+  currentIndex = (currentIndex + direction + totalImages) % totalImages;
+  carousel.style.transform = `translateX(${-currentIndex*100}%)`;
+}
+
+// loop automatico
+setInterval(()=>{
+  moveCarousel(1);
+}, 4000); // cambia immagine ogni 4 secondi
+
+// musica automatica
+window.addEventListener('load', ()=>{
   const music = document.getElementById('bg-music');
   music.volume = 0.6;
   music.play().catch(()=>{});
-}
+});
 </script>
 </body>
 </html>
