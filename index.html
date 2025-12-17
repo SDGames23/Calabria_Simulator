@@ -5,28 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calabria Simulator</title>
 
-<meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie.">
+<meta name="description" content="Calabria Simulator è un open world satirico con scimmie, banane e peperoncino.">
 <meta name="author" content="SD Games">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --accent:#22c55e;
-  --dark:#020617;
-  --glass:rgba(255,255,255,.08);
+  --glass:rgba(255,255,255,.18);
 }
 
-*{box-sizing:border-box}
+/* reset */
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
   font-family:'Montserrat',sans-serif;
   color:#fff;
   background:
-    linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.85)),
+    linear-gradient(
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.55)
+    ),
     url('anteprima3.png') center/cover fixed no-repeat;
 }
 
@@ -38,48 +38,71 @@ header, main, footer{
 }
 
 .logo{
-  max-width:280px;
-  margin:30px auto;
+  max-width:300px;
+  margin:25px auto;
 }
 
 h2{
-  font-size:clamp(2rem,4vw,3rem);
-  margin-bottom:10px;
+  font-size:clamp(2.2rem,4vw,3.2rem);
+  margin-bottom:15px;
 }
 
 p{
   max-width:900px;
   margin:0 auto 20px;
   line-height:1.7;
-  opacity:.9;
+  font-size:1.05rem;
 }
 
 /* buttons */
 .download-button{
   display:inline-block;
   margin:25px 10px;
-  padding:16px 32px;
-  border-radius:14px;
+  padding:16px 34px;
+  border-radius:16px;
   background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#021;
+  color:#052e16;
   font-weight:800;
   text-decoration:none;
   transition:.25s;
-  box-shadow:0 10px 30px rgba(34,197,94,.35);
+  box-shadow:0 10px 30px rgba(34,197,94,.45);
 }
 
 .download-button:hover{
-  transform:translateY(-3px) scale(1.04);
-  box-shadow:0 15px 40px rgba(34,197,94,.55);
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* TARANTELLA MONKEYS */
+.monkey-stage{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin:40px 0;
+}
+
+.monkey{
+  font-size:64px;
+  animation:tarantella 1.2s infinite ease-in-out;
+}
+
+.monkey:nth-child(2){animation-delay:.15s}
+.monkey:nth-child(3){animation-delay:.3s}
+
+@keyframes tarantella{
+  0%{transform:translateY(0) rotate(0)}
+  25%{transform:translateY(-14px) rotate(-8deg)}
+  50%{transform:translateY(0) rotate(8deg)}
+  75%{transform:translateY(-14px) rotate(-6deg)}
+  100%{transform:translateY(0) rotate(0)}
 }
 
 /* carousel */
 .carousel-container{
   max-width:1000px;
-  margin:40px auto;
-  position:relative;
+  margin:50px auto;
   overflow:hidden;
-  border-radius:18px;
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
 .carousel{
@@ -90,7 +113,6 @@ p{
 .carousel img{
   width:100%;
   flex-shrink:0;
-  border-radius:18px;
 }
 
 /* arrows */
@@ -100,23 +122,23 @@ p{
   transform:translateY(-50%);
   font-size:34px;
   padding:10px 16px;
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.6);
   border-radius:50%;
   cursor:pointer;
 }
 
-.arrow-left{left:15px}
-.arrow-right{right:15px}
+.arrow-left{left:20px}
+.arrow-right{right:20px}
 
 /* glass sections */
 section{
   background:var(--glass);
-  backdrop-filter:blur(10px);
-  border-radius:20px;
+  backdrop-filter:blur(8px);
+  border-radius:22px;
   padding:40px 30px;
-  max-width:900px;
-  margin:60px auto;
-  border:1px solid rgba(255,255,255,.15);
+  max-width:950px;
+  margin:70px auto;
+  border:1px solid rgba(255,255,255,.25);
 }
 
 /* social */
@@ -124,26 +146,26 @@ section{
   display:inline-block;
   margin-left:20px;
   padding:12px 22px;
-  border-radius:12px;
+  border-radius:14px;
   background:#1d4ed8;
   color:#fff;
   text-decoration:none;
   font-weight:600;
 }
 
-.social-button:hover{opacity:.85}
-
 /* footer */
 footer{
   margin-top:60px;
-  background:#020617;
-  opacity:.9;
+  background:rgba(0,0,0,.7);
   font-size:14px;
 }
 
 /* mobile */
 @media(max-width:600px){
-  .social-button{display:block;margin:15px auto}
+  .social-button{
+    display:block;
+    margin:15px auto;
+  }
 }
 </style>
 </head>
@@ -159,10 +181,19 @@ footer{
 </header>
 
 <main>
-  <h2>Esplora un Nuovo Mondo</h2>
-  <p>
-    <strong>Calabria Simulator</strong> è un videogioco satirico open world
-    ispirato ai meme più folli della rete.
+
+  <h2>Benvenuto in Calabria Simulator</h2>
+
+  <div class="monkey-stage">
+    <div class="monkey">🐒</div>
+    <div class="monkey">🐒</div>
+    <div class="monkey">🐒</div>
+  </div>
+
+  <p style="font-style:italic">
+    Scimmie che ballano la tarantella.  
+    Banane caricate a peperoncino.  
+    Calabria allo stato puro.
   </p>
 
   <p style="color:#facc15;font-weight:600">
@@ -182,33 +213,59 @@ footer{
       <img src="anteprima4.png">
       <img src="anteprima5.png">
     </div>
-    <div class="arrow arrow-left" onclick="moveCarousel(-1)">❮</div>
-    <div class="arrow arrow-right" onclick="moveCarousel(1)">❯</div>
   </div>
+
+  <section>
+    <h3>🎮 Cos’è Calabria Simulator</h3>
+
+    <p>
+      <strong>Calabria Simulator</strong> è un videogioco open world satirico
+      dove controlli una <strong>scimmia ribelle</strong>.
+    </p>
+
+    <p>
+      Sei armato di una <strong>banana</strong> che spara
+      <strong>proiettili al peperoncino</strong>.
+      I nemici colpiti possono trasformarsi in una
+      <strong>’nduja vivente</strong>.
+    </p>
+
+    <p>
+      ⚠️ Attento ai <strong>Calabriat</strong>:
+      se ti avvicini troppo possono
+      <strong>prenderti a botte</strong> senza pietà.
+    </p>
+
+    <p>
+      🗺️ Esplora una Calabria surreale:
+    </p>
+
+    <ul style="text-align:left;max-width:650px;margin:20px auto">
+      <li>🏖️ spiagge e coste iconiche</li>
+      <li>🏔️ montagne e boschi misteriosi</li>
+      <li>🏛️ paesi antichi pieni di NPC folli</li>
+      <li>🌶️ sagre, mercati e zone ultra-piccanti</li>
+    </ul>
+
+    <p style="font-style:italic">
+      Un mix di azione, meme, folklore e follia calabrese.
+    </p>
+  </section>
 
   <a href="https://calabria-simulator.itch.io/calabria-simulator"
      class="download-button" target="_blank">
-     🎮 Scaricalo quando sarà pronto
+     🎮 Segui lo sviluppo
   </a>
 
   <div>
     <img src="logo_sd_games.jpg" style="max-width:180px;margin-top:30px">
     <a class="social-button"
-       href="https://www.instagram.com/calabria_simulator_"
+       href="https://www.instagram.com/sdgam.es"
        target="_blank">
        Seguici su Instagram
     </a>
   </div>
 
-  <section>
-    <h3>Chi Siamo</h3>
-    <p>
-      Team indipendente calabrese, tra videogiochi, meme e follia creativa.
-    </p>
-    <p style="font-style:italic">
-      Creato con amore e cipolla di Tropea ❤️
-    </p>
-  </section>
 </main>
 
 <footer>
