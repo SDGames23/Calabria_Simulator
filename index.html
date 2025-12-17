@@ -19,7 +19,6 @@ body{
   color:#fff;
   background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.55)), url('anteprima3.png') center/cover fixed no-repeat;
 }
-/* layout */
 header, main, footer{
   width:100%;
   text-align:center;
@@ -39,7 +38,6 @@ p{
   line-height:1.7;
   font-size:1.05rem;
 }
-/* buttons */
 .download-button{
   display:inline-block;
   margin:25px 10px;
@@ -56,7 +54,6 @@ p{
 .download-button:hover{
   transform:translateY(-4px) scale(1.05);
 }
-/* TARANTELLA MONKEYS */
 .monkey-stage{
   display:flex;
   justify-content:center;
@@ -76,7 +73,6 @@ p{
   75%{transform:translateY(-14px) rotate(-6deg)}
   100%{transform:translateY(0)}
 }
-/* carousel */
 .carousel-container{
   max-width:1000px;
   margin:50px auto;
@@ -93,7 +89,6 @@ p{
   width:100%;
   flex-shrink:0;
 }
-/* carousel arrows */
 .arrow{
   position:absolute;
   top:50%;
@@ -108,7 +103,6 @@ p{
 }
 .arrow-left{left:10px;}
 .arrow-right{right:10px;}
-/* glass sections */
 section{
   background:var(--glass);
   backdrop-filter:blur(8px);
@@ -118,7 +112,6 @@ section{
   margin:70px auto;
   border:1px solid rgba(255,255,255,.25);
 }
-/* MAPPA */
 .map-container{
   margin-top:30px;
 }
@@ -129,7 +122,6 @@ section{
   box-shadow:0 0 40px rgba(34,197,94,.35);
   border:2px solid rgba(255,255,255,.3);
 }
-/* social */
 .social-button{
   display:inline-block;
   margin-left:20px;
@@ -140,7 +132,6 @@ section{
   text-decoration:none;
   font-weight:600;
 }
-/* footer */
 footer{
   margin-top:60px;
   background:rgba(0,0,0,.7);
@@ -177,6 +168,7 @@ Scimmie. Banane. Peperoncino. Calabria.
 🎮 Vai su itch.io
 </a>
 
+<!-- musica automatica -->
 <audio id="bg-music" loop>
   <source src="background_music.mp3" type="audio/mpeg">
 </audio>
@@ -189,8 +181,6 @@ Scimmie. Banane. Peperoncino. Calabria.
     <img src="anteprima4.png">
     <img src="anteprima5.png">
   </div>
-  <div class="arrow arrow-left" onclick="moveCarousel(-1)">&#10094;</div>
-  <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
 </div>
 
 <section>
@@ -235,22 +225,7 @@ Scimmie. Banane. Peperoncino. Calabria.
 </footer>
 
 <script>
-const carousel = document.querySelector('.carousel');
-const totalImages = document.querySelectorAll('.carousel img').length;
-let currentIndex = 0;
-
-// frecce
-function moveCarousel(direction){
-  currentIndex = (currentIndex + direction + totalImages) % totalImages;
-  carousel.style.transform = `translateX(${-currentIndex*100}%)`;
-}
-
-// loop automatico
-setInterval(()=>{
-  moveCarousel(1);
-}, 4000); // cambia immagine ogni 4 secondi
-
-// musica automatica
+// musica automatica al caricamento
 window.addEventListener('load', ()=>{
   const music = document.getElementById('bg-music');
   music.volume = 0.6;
