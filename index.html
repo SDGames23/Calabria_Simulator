@@ -4,70 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calabria Simulator</title>
-
 <meta name="description" content="Calabria Simulator è un open world satirico con scimmie, banane e peperoncino.">
 <meta name="author" content="SD Games">
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --accent:#22c55e;
   --glass:rgba(255,255,255,.18);
+  --warning:#facc15;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:'Montserrat',sans-serif;
   color:#fff;
-  background:
-    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.55)),
-    url('anteprima3.png') center/cover fixed no-repeat;
+  background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.55)), url('anteprima3.png') center/cover fixed no-repeat;
 }
-
 /* layout */
 header, main, footer{
   width:100%;
   text-align:center;
   padding:20px;
 }
-
 .logo{
   max-width:300px;
   margin:25px auto;
 }
-
 h2{
   font-size:clamp(2.2rem,4vw,3.2rem);
   margin-bottom:15px;
 }
-
 p{
   max-width:900px;
   margin:0 auto 20px;
   line-height:1.7;
   font-size:1.05rem;
 }
-
+/* DEV BANNER */
+.dev-banner{
+  display:inline-block;
+  background:linear-gradient(135deg,#facc15,#eab308);
+  color:#1c1917;
+  font-weight:800;
+  padding:14px 26px;
+  border-radius:18px;
+  margin:20px auto 30px;
+  box-shadow:0 10px 30px rgba(250,204,21,.45);
+}
 /* buttons */
-.download-button{
+.download-button,
+.music-button{
   display:inline-block;
   margin:25px 10px;
   padding:16px 34px;
   border-radius:16px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#052e16;
   font-weight:800;
   text-decoration:none;
   transition:.25s;
+  cursor:pointer;
+}
+.download-button{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#052e16;
   box-shadow:0 10px 30px rgba(34,197,94,.45);
 }
-
-.download-button:hover{
+.music-button{
+  background:linear-gradient(135deg,#38bdf8,#0284c7);
+  color:#021e2d;
+}
+.download-button:hover,
+.music-button:hover{
   transform:translateY(-4px) scale(1.05);
 }
-
 /* TARANTELLA MONKEYS */
 .monkey-stage{
   display:flex;
@@ -75,15 +83,12 @@ p{
   gap:25px;
   margin:40px 0;
 }
-
 .monkey{
   font-size:64px;
   animation:tarantella 1.2s infinite ease-in-out;
 }
-
 .monkey:nth-child(2){animation-delay:.15s}
 .monkey:nth-child(3){animation-delay:.3s}
-
 @keyframes tarantella{
   0%{transform:translateY(0)}
   25%{transform:translateY(-14px) rotate(-8deg)}
@@ -91,7 +96,6 @@ p{
   75%{transform:translateY(-14px) rotate(-6deg)}
   100%{transform:translateY(0)}
 }
-
 /* carousel */
 .carousel-container{
   max-width:1000px;
@@ -100,17 +104,14 @@ p{
   border-radius:20px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
-
 .carousel{
   display:flex;
   transition:transform .5s ease;
 }
-
 .carousel img{
   width:100%;
   flex-shrink:0;
 }
-
 /* glass sections */
 section{
   background:var(--glass);
@@ -121,20 +122,17 @@ section{
   margin:70px auto;
   border:1px solid rgba(255,255,255,.25);
 }
-
 /* MAPPA */
 .map-container{
   margin-top:30px;
 }
-
-.map-container img{
+.map-container svg{
   width:100%;
   max-width:600px;
   border-radius:20px;
   box-shadow:0 0 40px rgba(34,197,94,.35);
   border:2px solid rgba(255,255,255,.3);
 }
-
 /* social */
 .social-button{
   display:inline-block;
@@ -146,14 +144,12 @@ section{
   text-decoration:none;
   font-weight:600;
 }
-
 /* footer */
 footer{
   margin-top:60px;
   background:rgba(0,0,0,.7);
   font-size:14px;
 }
-
 @media(max-width:600px){
   .social-button{
     display:block;
@@ -164,104 +160,141 @@ footer{
 </head>
 
 <body>
-
 <header>
   <img src="logo gioco.png" class="logo" alt="Calabria Simulator">
 </header>
 
 <main>
+<h2>Benvenuto in Calabria Simulator</h2>
 
-  <h2>Benvenuto in Calabria Simulator</h2>
+<!-- STATO SVILUPPO -->
+<div class="dev-banner">
+⚠️ GIOCO ATTUALMENTE IN FASE DI SVILUPPO
+</div>
 
-  <div class="monkey-stage">
-    <div class="monkey">🐒</div>
-    <div class="monkey">🐒</div>
-    <div class="monkey">🐒</div>
+<div class="monkey-stage">
+  <div class="monkey">🐒</div>
+  <div class="monkey">🐒</div>
+  <div class="monkey">🐒</div>
+</div>
+
+<p style="font-style:italic">
+Scimmie. Banane. Peperoncino. Calabria.
+</p>
+
+<!-- MUSICA -->
+<button class="music-button" onclick="startMusic()">
+🎵 Attiva musica
+</button>
+
+<a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
+🎮 Vai su itch.io
+</a>
+
+<audio id="bg-music" loop>
+  <source src="background_music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="carousel-container">
+  <div class="carousel">
+    <img src="anteprima1.png">
+    <img src="anteprima2.png">
+    <img src="anteprima3.png">
+    <img src="anteprima4.png">
+    <img src="anteprima5.png">
   </div>
+</div>
 
-  <p style="font-style:italic">
-    Scimmie. Banane. Peperoncino. Calabria.
-  </p>
+<section>
+<h3>🎮 Cos’è Calabria Simulator</h3>
+<p>Videogioco open world satirico dove controlli una scimmia armata di una <strong>banana spara-peperoncino</strong>.</p>
+<p>I nemici colpiti possono trasformarsi in una <strong>’nduja vivente</strong>.</p>
+<p>⚠️ Attento ai <strong>Calabriat</strong>: se ti avvicini troppo possono prenderti a botte.</p>
+</section>
 
-  <a href="https://calabria-simulator.itch.io/calabria-simulator"
-     class="download-button" target="_blank">
-     🎮 Vai su itch.io
+<!-- MAPPA -->
+<section>
+<h3>🗺️ Mappa della Calabria</h3>
+<p>Esplora una Calabria surreale, ispirata a luoghi iconici, reinterpretati in chiave ironica e folle.</p>
+<div class="map-container">
+<!-- MAPPA STILIZZATA -->
+<svg viewBox="0 0 300 900" xmlns="http://www.w3.org/2000/svg" aria-label="Mappa stilizzata di Calabria Simulator">
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Silhouette Calabria -->
+  <path d="M150 40 C130 90,170 120,140 160 C110 200,140 240,120 280 C100 330,130 360,110 410 C90 470,120 520,140 580 C160 640,150 700,140 760 C130 820,150 860,170 860 C190 860,210 820,200 760 C190 700,200 640,220 580 C240 520,210 470,230 410 C250 360,220 330,240 280 C260 240,230 200,260 160 C290 120,270 90,250 40 Z"
+        fill="url(#land)" stroke="#eafff1" stroke-width="3"/>
+
+  <!-- COSTE -->
+  <circle cx="220" cy="160" r="10" fill="#38bdf8"/>
+  <text x="235" y="165" fill="#fff" font-size="12">Coste 🏖️</text>
+
+  <!-- MONTAGNE -->
+  <circle cx="145" cy="360" r="10" fill="#a3e635"/>
+  <text x="160" y="365" fill="#fff" font-size="12">Montagne 🏔️</text>
+
+  <!-- ROVINE -->
+  <circle cx="160" cy="520" r="11" fill="#eab308" filter="url(#glow)"/>
+  <text x="175" y="525" fill="#fff" font-size="12">Rovine 🏛️</text>
+
+  <!-- PEPERONCINO -->
+  <circle cx="180" cy="620" r="11" fill="#ef4444" filter="url(#glow)"/>
+  <text x="195" y="625" fill="#fff" font-size="12">Peperoncino 🌶️</text>
+
+  <!-- CALABRIAT -->
+  <circle cx="190" cy="740" r="13" fill="#f97316" filter="url(#glow)">
+    <animate attributeName="r" values="11;14;11" dur="1.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="205" y="745" fill="#fff" font-size="12">Calabriat 🥊</text>
+
+</svg>
+</div>
+
+<ul style="text-align:left;max-width:650px;margin:30px auto;line-height:1.7">
+<li>🏖️ Coste e spiagge selvagge</li>
+<li>🏔️ Montagne e boschi pericolosi</li>
+<li>🏛️ Rovine e zone antiche</li>
+<li>🌶️ Zone ad altissimo livello di peperoncino</li>
+<li>🥊 Aree controllate dai Calabriat</li>
+</ul>
+<p style="font-style:italic">Ogni zona nasconde segreti, meme e pericoli.</p>
+</section>
+
+<a href="https://calabria-simulator.itch.io/calabria-simulator" class="download-button" target="_blank">
+🎮 Segui lo sviluppo
+</a>
+
+<div>
+  <img src="logo_sd_games.jpg" style="max-width:180px;margin-top:30px">
+  <a class="social-button" href="https://www.instagram.com/sdgam.es" target="_blank">
+  Seguici su Instagram
   </a>
-
-  <div class="carousel-container">
-    <div class="carousel">
-      <img src="anteprima1.png">
-      <img src="anteprima2.png">
-      <img src="anteprima3.png">
-      <img src="anteprima4.png">
-      <img src="anteprima5.png">
-    </div>
-  </div>
-
-  <section>
-    <h3>🎮 Cos’è Calabria Simulator</h3>
-
-    <p>
-      Videogioco open world satirico dove controlli una scimmia armata
-      di una <strong>banana spara-peperoncino</strong>.
-    </p>
-
-    <p>
-      I nemici colpiti possono trasformarsi in una
-      <strong>’nduja vivente</strong>.
-    </p>
-
-    <p>
-      ⚠️ Attento ai <strong>Calabriat</strong>:
-      se ti avvicini troppo possono prenderti a botte.
-    </p>
-  </section>
-
-  <!-- MAPPA -->
-  <section>
-    <h3>🗺️ Mappa della Calabria</h3>
-
-    <p>
-      Esplora una Calabria surreale, ispirata a luoghi iconici,
-      reinterpretati in chiave ironica e folle.
-    </p>
-
-    <div class="map-container">
-      <img src="mappa_calabria.png" alt="Mappa di Calabria Simulator">
-    </div>
-
-    <ul style="text-align:left;max-width:650px;margin:30px auto;line-height:1.7">
-      <li>🏖️ Coste e spiagge selvagge</li>
-      <li>🏔️ Montagne e boschi pericolosi</li>
-      <li>🏛️ Paesi antichi pieni di NPC imprevedibili</li>
-      <li>🌶️ Zone ad altissimo livello di peperoncino</li>
-      <li>🥊 Aree controllate dai Calabriat</li>
-    </ul>
-
-    <p style="font-style:italic">
-      Ogni zona nasconde segreti, meme e pericoli.
-    </p>
-  </section>
-
-  <a href="https://calabria-simulator.itch.io/calabria-simulator"
-     class="download-button" target="_blank">
-     🎮 Segui lo sviluppo
-  </a>
-
-  <div>
-    <img src="logo_sd_games.jpg" style="max-width:180px;margin-top:30px">
-    <a class="social-button"
-       href="https://www.instagram.com/sdgam.es"
-       target="_blank">
-       Seguici su Instagram
-    </a>
-  </div>
+</div>
 
 </main>
 
 <footer>
-  © 2025 Calabria Simulator – SD Games
+© 2025 Calabria Simulator – SD Games
 </footer>
 
+<script>
+function startMusic(){
+  const music = document.getElementById('bg-music');
+  music.volume = 0.6;
+  music.play().catch(()=>{});
+}
+</script>
 </body>
 </html>
